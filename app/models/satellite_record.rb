@@ -27,6 +27,7 @@ class SatelliteRecord < ApplicationRecord
   end
 
   def self.minute_below?
+    # check if all record averages in the past minute were below 160
     self.all.last(6).all?{|x|x.average < 160}
   end
 
